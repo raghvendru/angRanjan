@@ -1,0 +1,47 @@
+<div class ="container-fluid row">
+  <div class="col-3" style="border: 1px solid pink ;height: 800px" >
+    <div *ngFor="let item of posts" style="height: 30px;width: 100%; border: 1px solid grey; padding: 5px ">
+      <p>{{ item.firstName }}</p>
+      <!-- Display other properties as needed -->
+    </div>
+  </div>
+  <div class="col-9 "  style="padding: 10px; border: 1px solid red ;height: 800px">
+    <div class ="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+      <th class="text-center">sl.no</th>
+      <th class="text-center"> Fname</th>
+      <th class="text-center">Lname</th>
+      <th class="text-center">mail</th>
+      <th class="text-center">action</th>
+      </tr>
+
+
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of empList">
+       <td>{{item.id}}</td>
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.email}}</td>
+      <td><button class="btn-danger" (click)="deleteEmployee(item.id)">delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="row">
+      <form>
+        <input class="form-control-sm" type="text" name="fname" [(ngModel)]="fname" placeholder="first name">
+        <input class="form-control-sm" type="text" name="lname" [(ngModel)]="lname" placeholder="last name">
+        <input class="form-control-sm" type="email" name="email" [(ngModel)]="email" placeholder="email"  pattern="^[a-zA-Z0-9._% -] @[a-zA-Z0-9.-] \.[a-zA-Z]{2,4}$"
+               maxLength="100">
+      </form>
+    </div>
+    <br>
+    <button (click)="addNewData()" class="btn-primary" style="float: right ;margin-right: 10px">ADD</button>
+    <button class="btn-danger" style="float: right;margin-right: 10px">DELETE</button>
+    <button class="btn-info" (click)="reset()" style="float: right;margin-right: 10px">Reset</button>
+
+  </div>
+</div>
